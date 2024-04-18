@@ -1,0 +1,13 @@
+
+
+/* Fazer comentário no CSS*/
+:root, :root[data-theme='dark'] {
+    --primary-color: rgb(240, 240, 240);
+    --primary-bg-color: rgb(17, 18, 23);    
+}
+
+:root [data-theme='dark'] {
+    --primary-color: rgb(11, 11, 15);
+    --primary-bg-color: rgb(233, 233, 233);  
+}
+
