@@ -4,11 +4,11 @@
 :root, :root[data-theme='dark'] {
     --primary-color: rgb(240, 240, 240); /* cor de texto */
     --secondary-color: #d82424; /* 2° cor de texto */
-    --primary-bg-color: #606eb4;   /* cor de fundo */
+    --primary-bg-color: #0b0b0f;   /* cor de fundo */
     /* bg = background = plano de fundo */
     --secondary-br-color: #28292E; 
     --primary-border-color: #28292e;
-    --secundary-border-color: #56575a;
+    --secundary-border-color: #b81a1a;
 
     --title-color: #f0f0f0;
     --text-color: #9a9a9c;
@@ -21,12 +21,12 @@
     --primary-bg-color: rgb(233, 233, 233);  
     --secondary-bg-color: #c7c8c9;
     --primary-border-color: #c7c8c9;
-    --secondary-border-color: #9a9a9c;
+    --secondary-border-color: #b81a1a;
 
     --title-color: #0b0b0f;
     --text-color: #28292e;
     --link-color: #28292e;
-    --icon-color: #56575a;
+    --icon-color: #b81a1a;
 
 
 }
@@ -53,8 +53,8 @@ html [data-theme='light'] .tecnologia-logo {
 /* (*) reset do CSS */
 
 *{
-    margin: 50px; /* margem */
-    padding: 10px; /* preechimento // espaçamento */
+    margin: 0; /* margem */
+    padding: 0; /* preechimento // espaçamento */
     box-sizing: border-box; 
     vertical-align: baseline;
     list-style: none;
@@ -83,4 +83,61 @@ body{
     display: flex;
     justify-content: flex-end;
     
+}
+
+.header-logo .logo {
+    width: 3.25rem;
+    height: 3.25rem;
+}
+
+#toggleTheme {
+    font-size: 1.5rem;
+    color: var(--icon-color);
+    cursor: pointer;
+    transition: ease-in-out .4s;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-border-color);
+}
+
+.menu-item {
+    width: 100%;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    gap: .15rem;  /* GAP: espaço entre eles */
+}
+
+.menu-mobile {
+    width: 100vw; /* VW: viewport width visualização de comprimento */
+    position: fixed;
+    bottom: 0;
+    justify-content: space-between;
+    border-top: 1px solid var(--primary-border-color); 
+}
+
+.menu-mobile .menu-link {
+    flex-direction: column; /*  */
+    justify-content: center;
+    padding: 0.5rem 1rem;
+}
+
+.menu-link.active .menu-icon,
+.menu-link.active .menu-text,
+.menu-link:hover .menu-icon,
+.menu-link:hover .menu-text {
+    color: var(--primary-color);
+}
+
+.menu-icon, .menu-text {
+    color: var(--text-color);
+}
+
+.menu-icon {
+    font-size: 1.5rem;
 }
