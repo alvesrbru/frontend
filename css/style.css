@@ -4,7 +4,7 @@
 :root, :root[data-theme='dark'] {
     --primary-color: rgb(240, 240, 240); /* cor de texto */
     --secondary-color: #d82424; /* 2° cor de texto */
-    --primary-bg-color: #0b0b0f;   /* cor de fundo */
+    --primary-bg-color: #121215;   /* cor de fundo */
     /* bg = background = plano de fundo */
     --secondary-br-color: #28292E; 
     --primary-border-color: #28292e;
@@ -17,9 +17,9 @@
 }
 
 :root [data-theme='dark'] {
-    --primary-color: rgb(59, 59, 104);
+    --primary-color: rgb(0, 0, 0);
     --primary-bg-color: rgb(233, 233, 233);  
-    --secondary-bg-color: #c7c8c9;
+    --secondary-bg-color: #2b3138;
     --primary-border-color: #c7c8c9;
     --secondary-border-color: #b81a1a;
 
@@ -53,13 +53,22 @@ html [data-theme='light'] .tecnologia-logo {
 /* (*) reset do CSS */
 
 *{
-    margin: 0; /* margem */
-    padding: 0; /* preechimento // espaçamento */
+    margin: 0px; /* margem */
+    padding: 0px; /* preechimento // espaçamento */
     box-sizing: border-box; 
-    vertical-align: baseline;
+     /* 
+    A propriedade box-sizing em CSS é usada para alterar o modelo de caixa de um elemento.
+    O valor border-box é usado para garantir que a largura e a altura de um elemento
+    incluam as bordas e o preenchimento, em vez de apenas o conteúdo.
+    Quando você define box-sizing: border-box;, está dizendo ao navegador
+    para calcular a largura e a altura total de um elemento,
+    incluindo a largura das bordas e o preenchimento, e não apenas o conteúdo.
+    */
+
+    /* vertical-align: baseline; */
     list-style: none;
     scrollbar-width: thin;
-    scrollbar-color: var(--secondary-br-color) transparent;
+    scrollbar-color: var(--secondary-bg-color) transparent;
 }
 
 body{
@@ -69,10 +78,62 @@ body{
 
 }
 
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+a:hover {
+    color: var(--primary-color);
+}
+i {
+    color: var(--icon-color);
+}
+
+b {
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 200;
+}
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 0.4rem;
+}
+h3 {
+    font-size: 1.55rem;
+    text-align: left;
+}
+h4 {
+    color: var(--primary-color);
+    font-weight: 400;
+    font-size: 1.15rem;
+    text-align: left;
+}
+h1, h2, h3{
+    font-family: 'League Spartan', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    color: var(--title-color);
+    font-weight: 200;
+}
+
+p, span, li {
+    font-size: 1rem;
+}
+p {
+    text-align: justify;
+}
+
+/***/
+
 #header {
     display: flex;
     flex-flow: row wrap;
+    /* Coloca o conteúdo em linha e permite a quebra de linha. */
     justify-content: space-between;
+     /* Os itens dentro do container flexível serão distribuídos de maneira uniforme ao longo do eixo principal, com espaços iguais entre eles.  */
     align-items: center;
     width: 100%;
     padding: 0.5rem 1rem;
@@ -99,8 +160,11 @@ body{
 
 .menu {
     display: flex;
+    /*  Torna o elemento um flex container automaticamente
+    transformando todos os seus filhos diretos em flex itens */
     align-items: center;
     background-color: var(--primary-border-color);
+    gap: 1rem;
 }
 
 .menu-item {
@@ -109,20 +173,23 @@ body{
 
 .menu-link {
     display: flex;
+    /*  Torna o elemento um flex container automaticamente
+    transformando todos os seus filhos diretos em flex itens */
     align-items: center;
-    gap: .15rem;  /* GAP: espaço entre eles */
+    gap: .15rem;  /* GAP: espaço entre eles, usada para definir o espaço entre os elementos
+    criar espaçamento uniforme entre os elementos */
 }
 
 .menu-mobile {
     width: 100vw; /* VW: viewport width visualização de comprimento */
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     justify-content: space-between;
     border-top: 1px solid var(--primary-border-color); 
 }
 
 .menu-mobile .menu-link {
-    flex-direction: column; /*  */
+    flex-direction: column; /* definir a direção principal dos itens em uma coluna vertical */
     justify-content: center;
     padding: 0.5rem 1rem;
 }
@@ -130,7 +197,7 @@ body{
 .menu-link.active .menu-icon,
 .menu-link.active .menu-text,
 .menu-link:hover .menu-icon,
-.menu-link:hover .menu-text {
+.menu-link:hover .menu-text { /* a:hover = pseudo-classe  */
     color: var(--primary-color);
 }
 
@@ -141,3 +208,111 @@ body{
 .menu-icon {
     font-size: 1.5rem;
 }
+
+.menu-text {
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+/* 
+.header-nav {   menu desktop 
+    display: none;    none 
+}
+*/
+.menu-principal {
+    gap: 1rem;
+}
+.menu-social {
+    gap: 1rem;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    background: transparent;
+    /* border-radius: 3rem; */
+    border: none;
+    transition: ease-in-out .3s;
+    cursor: pointer;
+    color: var(--primary-color);
+    padding: 0.5rem 1.5rem;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    transition: ease-in-out .3s;
+}
+
+.btn span, .btn i {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+}
+
+.btn-primary span{
+    color: var(--primary-color);
+}
+
+.btn-primary {
+    border: 1px solid var(--primary-color);
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.video iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+#home, .projetos, .sobre, .contato {
+    padding: 2.5rem 1rem;
+}
+
+.tecnologias {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 6.25rem 1rem 2rem;
+    background: var(--secondary-bg-color);
+    margin-top: -5.5rem;
+}
+
+.tecnologias h2 {
+    font-size: 2rem;
+    text-transform: none;
+    letter-spacing: normal;
+    text-align: start;
+}
+
+.tecnologias-lista {
+    display: flex;
+    flex-flow: row wrap;
+    gap: .5rem;
+}
+
+.tecnologia-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 4.8rem;
+    right: 4.8rem;
+    border: 1px solid var(--secondary-border-color);
+    border-radius: 5rem;
+}
+
+.tecnologia-logo {
+    height: 2.4rem;
+
+}
+
